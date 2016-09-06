@@ -1,0 +1,32 @@
+Classic Ethereum Dapp UI Components
+===================================
+
+image:https://img.shields.io/github/license/ethereumproject/classic-dapp-ui.svg?maxAge=2592000["License", link="https://github.com/ethereumproject/classic-dapp-ui/blob/master/LICENSE"]
+
+Javascript and CSS UI components to build Dapps for Ethereum Classic.
+
+_It's a new project and it doesn't have any releases yet._
+
+## Features
+
+* React JS
+* Material UI
+* Ready to use theme
+
+## Contribute
+
+Please consider joining the project, we need developers, testers, designers and doc writers.
+
+## Roadmap
+
+* Define ETC Dapp guidelines
+* ETC Dapp theme for Material UI
+* Logotype UI Component
+* Value UI Component
+* Address UI Component
+* Transaction UI Component
+* Examples and Documentation Website
+
+## License
+
+This project is licensed under the terms of the MIT license
