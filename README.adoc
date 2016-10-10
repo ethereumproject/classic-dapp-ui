@@ -1,6 +1,8 @@
 Classic Ethereum Dapp UI Components
 ===================================
 
+image:https://badges.gitter.im/ethereumproject/classic-dapp-ui.svg[link="https://gitter.im/ethereumproject/classic-dapp-ui?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
+
 image:https://img.shields.io/github/license/ethereumproject/classic-dapp-ui.svg?maxAge=2592000["License", link="https://github.com/ethereumproject/classic-dapp-ui/blob/master/LICENSE"]
 
 Javascript and CSS UI components to build Dapps for Ethereum Classic.
