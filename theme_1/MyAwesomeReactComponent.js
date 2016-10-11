@@ -1,4 +1,5 @@
 import React from 'react';
+var Radium = require('radium');
 import Paper from 'material-ui/Paper';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
@@ -166,10 +167,33 @@ var img_center_style = {
 }
 
 
+
+
+
 var Comment_5 = React.createClass({
     onLinkClicked () {
         console.log('Clicked!');
         //console.log(React.findDOMNode(this).classList())
+    },
+
+    onSomeButtonClicked() {
+        const { userId, dispatch } = this.props
+        dispatch({type: 'USER_FETCH_REQUESTED', payload: {userId}})
+    },
+
+    onMouseEnterHandler: function() {
+        this.setState({
+            hover: true
+        });
+        console.log('enter');
+    },
+    handleClick() {
+        console.log("Like!");
+        //this.setState({liked: !this.state.liked});
+    },
+
+    handleMouseOver () {
+        this.setState({ isHovering: true });
     },
 
     render: function() {
@@ -177,10 +201,11 @@ var Comment_5 = React.createClass({
 
             <div style={divStyle4}>
                 <ul>
-                    <li style={divStyle5}>
+                    <li onMouseOver= {this.onSomeButtonClicked}  style={divStyle5}>
 
                         <img style={img_center_style}  src="./img/icon1.png"
                              alt="lobster" width="88" height="112"/>
+
                     </li>
 
 
@@ -213,6 +238,9 @@ var Comment_5 = React.createClass({
         );
     }
 });
+
+
+
 
 
 
