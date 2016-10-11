@@ -29,6 +29,9 @@ Please consider joining the project, we need developers, testers, designers and 
 * Transaction UI Component
 * Examples and Documentation Website
 
+## Theme 1, "Μουσαι"
+* Javascript and CSS UI components to build Music Dapps for Ethereum Classic.
+
 ## License
 
 This project is licensed under the terms of the MIT license
