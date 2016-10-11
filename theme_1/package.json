@@ -16,6 +16,8 @@
   "dependencies": {
     "babel-polyfill": "6.3.14",
     "bootstrap": "^4.0.0-alpha.4",
+    "color": "^0.11.3",
+    "radium": "^0.18.1",
     "react": "^0.14.8",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^0.14.3",
@@ -27,6 +29,7 @@
   "devDependencies": {
     "babel-cli": "^6.1.18",
     "babel-core": "6.4.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "babel-preset-stage-2": "^6.1.18",
