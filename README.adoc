@@ -30,8 +30,7 @@ Please consider joining the project, we need developers, testers, designers and 
 * Examples and Documentation Website
 
 ## Theme 1, "Μουσαι"
-* Music Dapp
-
+* Javascript and CSS UI components to build Music Dapps for Ethereum Classic.
 
 ## License
 
