@@ -37,14 +37,18 @@ const App = () => (
 
 function render() {
   ReactDOM.render(
-      <App />,
-      /*
+
+      //<App />,
+
     <Counter
       value={store.getState()}
       onIncrement={() => action('INCREMENT')}
       onDecrement={() => action('DECREMENT')}
-      onIncrementAsync={() => action('INCREMENT_ASYNC')}/>,
-      */
+      onIncrementAsync={() => action('INCREMENT_ASYNC')}
+      onFetchData={() => action('FETCHDATA')}
+
+    />,
+
     document.getElementById('root')
   )
 }
