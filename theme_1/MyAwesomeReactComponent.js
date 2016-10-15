@@ -1,5 +1,6 @@
 import React from 'react';
 var Radium = require('radium');
+
 import Paper from 'material-ui/Paper';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
@@ -240,6 +241,74 @@ var Comment_5 = React.createClass({
 });
 
 
+class Comment_6 extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            maxLength: this.props.maxLength,
+        };
+    }
+
+    onSomeButtonClicked(){
+        console.log(this); // null
+        console.log("C1"); // null
+    }
+
+    static defaultProps = {
+        checked: false,
+        maxLength: 10,
+    };
+
+    static propTypes = {
+        checked: React.PropTypes.bool.isRequired,
+        maxLength: React.PropTypes.number.isRequired
+    };
+
+    render() {
+
+        const { value, onIncrement, onDecrement, onIncrementAsync, onFetchData  } = this.props;
+
+        return (
+
+            <div style={divStyle4}>
+                <ul>
+                    <li onMouseOver= {this.onSomeButtonClicked}  style={divStyle5}>
+
+                        <img style={img_center_style}  src="./img/icon1.png"
+                             alt="lobster" width="88" height="112"/>
+
+                    </li>
+
+
+                    <li style={divStyle5}>
+
+                        <img style={img_center_style}  src="./img/icon_trans.png"
+                             alt="lobster" width="88" height="112"/>
+                    </li>
+
+
+                    <li style={divStyle5}>
+
+                        <img style={img_center_style}  src="./img/icon_wallet.png"
+                             alt="lobster" width="88" height="112"/>
+                    </li>
+
+
+
+                    <li style={divStyle5}>
+
+                        <img style={img_center_style}  src="./img/icon_id.png"
+                             alt="lobster" width="88" height="112"/>
+                    </li>
+
+
+                </ul>
+            </div>
+        )
+    }
+}
 
 
 
@@ -250,7 +319,7 @@ var CommentBox = React.createClass({
             <div style={root_style} >
                 <Comment_1 />
                 <Comment_2 />
-                <Comment_5 />
+                <Comment_6 />
             </div>
         );
     }
