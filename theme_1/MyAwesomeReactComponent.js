@@ -1,4 +1,27 @@
-import React from 'react';
+import "babel-polyfill"
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+
+import Counter from './Counter'
+import reducer from './reducers'
+import rootSaga from './sagas'
+
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(
+    reducer,
+    applyMiddleware(sagaMiddleware)
+)
+sagaMiddleware.run(rootSaga)
+
+import { helloSaga } from './sagas'
+sagaMiddleware.run(helloSaga);
+
+const action = type => store.dispatch({type})
+
+
 
 
 var root_style = {
@@ -251,13 +274,13 @@ class Comment_6 extends React.Component {
 
     render() {
 
-        const { value, onIncrement, onDecrement, onIncrementAsync, onFetchData  } = this.props;
+        const { value, onIncrement, onDecrement, onIncrementAsync, onFetchData,onMouseOver1  } = this.props;
 
         return (
 
             <div style={divStyle4}>
                 <ul>
-                    <li onMouseOver= {this.onSomeButtonClicked}  style={divStyle5}>
+                    <li onMouseOver= {onMouseOver1}  style={divStyle5}>
 
                         <img style={img_center_style}  src="./img/icon1.png"
                              alt="lobster" width="88" height="112"/>
@@ -265,7 +288,7 @@ class Comment_6 extends React.Component {
                     </li>
 
 
-                    <li style={divStyle5}>
+                    <li onMouseOver= {onDecrement} style={divStyle5}>
 
                         <img style={img_center_style}  src="./img/icon_trans.png"
                              alt="lobster" width="88" height="112"/>
@@ -294,7 +317,7 @@ class Comment_6 extends React.Component {
 }
 
 
-
+/*
 
 var CommentBox = React.createClass({
     render: function() {
@@ -308,6 +331,52 @@ var CommentBox = React.createClass({
     }
 });
 
+*/
+
+
+
+
+class CommentBox extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            maxLength: this.props.maxLength,
+        };
+    }
+
+    static defaultProps = {
+        checked: false,
+        maxLength: 10,
+    };
+
+    static propTypes = {
+        checked: React.PropTypes.bool.isRequired,
+        maxLength: React.PropTypes.number.isRequired
+    };
+
+    render() {
+
+        const { value, onIncrement, onDecrement, onIncrementAsync, onFetchData  } = this.props;
+
+        return (
+
+            <div style={root_style} >
+                <Comment_1 />
+                <Comment_2 />
+                <Comment_6
+                    //value={store.getState()}
+                    onMouseOver1={() => action('INCREMENT')}
+                    onIncrement={() => action('INCREMENT')}
+                    onDecrement={() => action('DECREMENT')}
+                    onIncrementAsync={() => action('INCREMENT_ASYNC')}
+                    onFetchData={() => action('FETCHDATA')}
+                />
+            </div>
+        )
+    }
+}
 
 
 
@@ -317,4 +386,5 @@ const MenuExampleSimple = () => (
 
 );
 
-export default MenuExampleSimple;
+//export default MenuExampleSimple;
+export default CommentBox;
