@@ -28,8 +28,18 @@ function render() {
   ReactDOM.render(
 
       //<App />,
-      <MyAwesomeReactComponent />,
-    /*
+      <MyAwesomeReactComponent
+
+          //value={store.getState()}
+          onMouseOver1={() => action('INCREMENT')}
+          onIncrement={() => action('INCREMENT')}
+          onDecrement={() => action('DECREMENT')}
+          onIncrementAsync={() => action('INCREMENT_ASYNC')}
+          onFetchData={() => action('FETCHDATA')}
+
+      />,
+
+      /*
     <Counter
       value={store.getState()}
       onIncrement={() => action('INCREMENT')}
@@ -38,6 +48,7 @@ function render() {
       onFetchData={() => action('FETCHDATA')}
     />,
     */
+
 
     document.getElementById('root')
   )
