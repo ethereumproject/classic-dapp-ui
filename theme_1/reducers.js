@@ -1,5 +1,5 @@
 export default function counter(state = 0, action) {
-
+    console.log("進入Action");
   console.log(action);
   console.log(state);
 

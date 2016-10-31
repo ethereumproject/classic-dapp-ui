@@ -58,8 +58,8 @@ function* watchAndLog(getState) {
 export default function* rootSaga() {
   yield [
     helloSaga(),
-    //watchIncrementAsync(),
-    watchIncrementAsync2(),
+    watchIncrementAsync(),
+    //watchIncrementAsync2(),
     //watchAndLog()
   ]
 }
