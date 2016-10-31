@@ -162,6 +162,8 @@ var divStyle5 = {
     boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
     "margin": "25px",
 
+    //"pointerEvents": "none"
+
 
 };
 
@@ -170,8 +172,11 @@ var img_center_style = {
     //"position": "relative",
     //"top": "50%",
     //transform: "translateY(-200px)",
-    transform: "translateY(50px) translateX(60px)"
-}
+    transform: "translateY(50px) translateX(60px)",
+    //避免進入子元件，觸發Mouseout
+    //Avoid enter child , avoid from entering Mouseout
+    "pointerEvents": "none"
+};
 
 
 
