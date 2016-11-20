@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 import Counter from './Counter'
-import reducer from './reducers'
+import reducer from './reducers/index'
 import rootSaga from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
@@ -262,10 +262,12 @@ class Comment_6 extends React.Component {
         };
     }
 
+    /*
     onSomeButtonClicked(){
         console.log(this); // null
         console.log("C1"); // null
     }
+    */
 
     static defaultProps = {
         checked: false,
@@ -278,8 +280,10 @@ class Comment_6 extends React.Component {
     };
 
     render() {
+        //console.log(this.prop);
 
         const { value, onIncrement, onDecrement, onIncrementAsync, onFetchData,onMouseOver1  } = this.props;
+        console.log(this.props);
 
         return (
 
@@ -318,13 +322,22 @@ class Comment_6 extends React.Component {
                 </ul>
 
                 <div>
-                    Clicked: {value} times
+                    Clicked:  {value.counter} times
                 </div>
+
 
             </div>
         )
     }
 }
+
+class Greeting extends React.Component {
+    render() {
+        return <h1>Hello, {this.props.name}</h1>;
+    }
+}
+
+// Example usage: <ShoppingList name="Mark" />
 
 
 /*
@@ -368,7 +381,7 @@ class CommentBox extends React.Component {
 
     render() {
 
-        const { value, onIncrement, onDecrement, onIncrementAsync, onFetchData  } = this.props;
+        //const { value, onIncrement, onDecrement, onIncrementAsync, onFetchData  } = this.props;
 
         return (
 
@@ -382,6 +395,10 @@ class CommentBox extends React.Component {
                     onDecrement={() => action('DECREMENT')}
                     onIncrementAsync={() => action('INCREMENT_ASYNC')}
                     onFetchData={() => action('FETCHDATA')}
+                />
+                <Greeting
+                    value={store.getState()}
+                    name="Sara"
                 />
             </div>
         )
