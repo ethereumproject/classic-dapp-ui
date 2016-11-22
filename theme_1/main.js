@@ -2,6 +2,8 @@ import "babel-polyfill"
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group' // ES6
+
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
@@ -357,7 +359,21 @@ class Greeting extends React.Component {
  */
 
 
+class App1 extends React.Component {
 
+    render() {
+        return (
+            <div>
+                <ReactCSSTransitionGroup transitionName = "example"
+                                         transitionAppear = {true} transitionAppearTimeout = {500}
+                                         transitionEnter = {false} transitionLeave = {false}>
+
+                    <h1>My Element...</h1>
+                </ReactCSSTransitionGroup>
+            </div>
+        );
+    }
+}
 
 class CommentBox extends React.Component {
 
@@ -368,6 +384,10 @@ class CommentBox extends React.Component {
             maxLength: this.props.maxLength,
         };
     }
+
+
+
+
 
     static defaultProps = {
         checked: false,
@@ -382,6 +402,7 @@ class CommentBox extends React.Component {
     render() {
 
         //const { value, onIncrement, onDecrement, onIncrementAsync, onFetchData  } = this.props;
+
 
         return (
 
@@ -400,6 +421,10 @@ class CommentBox extends React.Component {
                     value={store.getState()}
                     name="Sara"
                 />
+                <App1
+
+                />
+
             </div>
         )
     }
