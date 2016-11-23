@@ -3,6 +3,7 @@ import "babel-polyfill"
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group' // ES6
+import Transition from 'react-inline-transition-group';
 
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
@@ -375,6 +376,79 @@ class App1 extends React.Component {
     }
 }
 
+
+class Demo extends React.Component {
+    constructor() {
+        super();
+        this.state = {count: 1};
+    }
+
+    handleAdd = () => {
+        this.setState(function (previousState) {
+            return {count: previousState.count + 1};
+        });
+    };
+
+    handleRemove = () => {
+        this.setState(function (previousState) {
+            return {count: Math.max(previousState.count - 1, 0)};
+        });
+    };
+
+    handlePhaseEnd = (phase, id) => {
+        if (phase === 'leave') console.log(id + ' left');
+    };
+
+    render() {
+        const styles = {
+            base: {
+                background: '#F00',
+                width: '500px',
+                height: '50px',
+            },
+
+            appear: {
+                background: '#FF0',
+                transition: 'all 500ms',
+            },
+
+            leave: {
+                background: '#F00',
+                transition: 'all 1250ms',
+            },
+        };
+
+        const elems = [];
+
+        // Don't forget that for most React components use array indexes as
+        // keys is a bad idea (but not for this example).
+        for (let i = 0; i < this.state.count; i++)
+            elems.push(<div key={i} id={i}>{i}</div>);
+
+        return (
+            <div>
+                <div>
+                    <button onClick={this.handleAdd}>Add</button>
+                    <button onClick={this.handleRemove}>Remove</button>
+                </div>
+                <Transition
+                    childrenStyles={{
+                        base: styles.base,
+                        appear: styles.appear,
+                        enter: styles.appear,
+                        leave: styles.leave,
+                    }}
+                    onPhaseEnd={this.handlePhaseEnd}
+                >
+                    {elems}
+                </Transition>
+            </div>
+        );
+    }
+}
+
+
+
 class CommentBox extends React.Component {
 
     constructor(props) {
@@ -422,6 +496,12 @@ class CommentBox extends React.Component {
                     name="Sara"
                 />
                 <App1
+
+                />
+                <App1
+
+                />
+                <Demo
 
                 />
 
